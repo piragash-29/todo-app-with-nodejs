@@ -9,6 +9,11 @@ app.use(cors());
 //configure the app.
 app.use(todoRoutes);
 
+app.use(express.urlencoded({extended:true}));
+app.set("view engine","ejs");
+app.set("views","src/views/pages");
+app.use('/static',express.static(`${__dirname}/public`));
+
 app.get("/", (req, res) =>{
     // res.send("hello world!");
     res.json({info: 'Nodejs is running successfully with nodemon server'})
