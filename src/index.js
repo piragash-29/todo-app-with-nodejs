@@ -1,9 +1,13 @@
 const express = require("express");
 const cors = require("cors");
 const app = express();
+//import the routes
+const todoRoutes = require('./routes/router');
 
 app.use(express.json());
 app.use(cors());
+//configure the app.
+app.use(todoRoutes);
 
 app.get("/", (req, res) =>{
     // res.send("hello world!");
